@@ -59,17 +59,31 @@ public class LoginActivity extends AppCompatActivity {
                                 String password = jsonResponse.getString("password");
                                 String management = jsonResponse.getString("management");
 
-                                Intent loginIntent = new Intent(LoginActivity.this,AdminActivity.class);
-                                loginIntent.putExtra("name", name);
-                                loginIntent.putExtra("username", username);
-                                loginIntent.putExtra("age", age);
-
-                                LoginActivity.this.startActivity(loginIntent);
-
+                                if(management.equals("M")){
+                                    Intent intent = new Intent(LoginActivity.this,AdminActivity.class);
+                                    intent.putExtra("name", name);
+                                    intent.putExtra("username", username);
+                                    intent.putExtra("age", age);
+                                    intent.putExtra("password", password);
+                                    LoginActivity.this.startActivity(intent);
+                                }else if(management.equals("N")){
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                                    builder.setMessage("Account has not been granted permission, Please talk to Manager ")
+                                            .setNegativeButton("Retry", null)
+                                            .create()
+                                            .show();
+                                }else if(management.equals("W")){
+                                    Intent intent = new Intent(LoginActivity.this,EmployeeActivity.class);
+                                    intent.putExtra("name", name);
+                                    intent.putExtra("username", username);
+                                    intent.putExtra("age", age);
+                                    intent.putExtra("password", password);
+                                    LoginActivity.this.startActivity(intent);
+                                }
 
                             }else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setMessage("Login Failed, Please fill out all fields")
+                                builder.setMessage("Login Failed : Incorrect Credentials ")
                                         .setNegativeButton("Retry", null)
                                         .create()
                                         .show();

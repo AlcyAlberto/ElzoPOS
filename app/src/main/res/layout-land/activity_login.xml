@@ -22,7 +22,9 @@
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/etUserName"
@@ -84,5 +86,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="@+id/btnLogin"
         android:layout_marginBottom="49dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="574dp"
+        android:layout_height="237dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/logo"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="23dp"
+        app:layout_constraintLeft_toLeftOf="@+id/etPassword"
+        app:layout_constraintTop_toTopOf="@+id/etPassword" />
 
 </android.support.constraint.ConstraintLayout>
