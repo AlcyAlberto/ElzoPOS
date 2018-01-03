@@ -15,6 +15,7 @@ public class AdminActivity extends AppCompatActivity {
         String username = intent.getStringExtra("username");
         int age = intent.getIntExtra("age",-1);
 
+
         setTitle(name+"'s Manager Console");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
